@@ -46,9 +46,15 @@
 		  display: inline-block;
 		  font-size: 16px;
 		}
+		@font-face {
+		  font-family: "Code_Pro_Demo";
+		  src: url("fonts/My_Fontspring_Fonts/Webfonts/codepro_regulardemo_macroman/Code_Pro_Demo-webfont.woff2") format("woff2"),
+		       url("fonts/My_Fontspring_Fonts/Webfonts/codepro_regulardemo_macroman/Code_Pro_Demo-webfont.woff") format("woff");
+		}
 		h2 {
 			font-size: 70px;
 			color: gray;
+			font-family: Code_Pro_Demo;
 		}
 	</style>
 
