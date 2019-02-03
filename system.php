@@ -1,8 +1,8 @@
 <?php
-	
+
 ?>
 <style type="text/css">
-				html, body{
+		html, body{
 			margin:0;
 			border:0;
 		}
@@ -54,7 +54,7 @@
 
 	<?php
 //normal things
-session_start();	
+session_start();
 error_reporting(E_ALL^E_NOTICE);
 //requires
 
@@ -83,14 +83,14 @@ $rank = $result['rank'];
 		//echo $sql;
 		$result = mysqli_query($db_conn, $sql);
 		echo "<table>\n";
-		
+
 		$sql_column = "SHOW COLUMNS FROM pophone_".$table_name;
 		$result_column = mysqli_query($db_conn,$sql);
 		$row = mysqli_fetch_array($result_column);
 		$counter = 0;
 		$counter_of_goods = 0;
 		echo "<th>Ln</th>";
-	
+
 		foreach($row as $key => $value){
 			if($counter == 0){
 				$counter =+1;
@@ -98,7 +98,7 @@ $rank = $result['rank'];
 			}
 				if((int)$key === 0){
     				echo "<th>".$key."</th>";
-    				
+
     				$counter_of_goods += 1;
 					$keys[$counter_of_goods] = $key;
 				}
@@ -120,7 +120,7 @@ $rank = $result['rank'];
 					echo "\n";
 				}
 				echo "<td class='td-normal'><input size='".mb_strwidth($keys[($counter+1 % sizeof($keys))])."px' value='".$value."' name='".$key."'' type='text' class='td-normal'></td>\n";
-				
+
 				$counter += 1;
 			}
 				$counter -= sizeof($keys);
