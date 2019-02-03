@@ -49,7 +49,7 @@
 		h2 {
 			font-size: 70px;
 			color: gray;
-			}
+		}
 	</style>
 
 	<?php
