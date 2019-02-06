@@ -21,6 +21,7 @@ require_once("system.php");
     }
 </script>
 <html>
+
 <nav class="nav">
 	<ul>
 		<li class="drop"><a href="#">Beszerzési rendszer</a>
@@ -68,10 +69,21 @@ require_once("system.php");
 
 		<li class="drop-4"><a href="#">Logisztikai Rendszer</a>
 			<ul class="dropdown-4">
-				
+		
 			</ul>
 		</li>
-
+        <?php
+        print_r($_SESSION[SESSION_NAME_PREFIX.'logged_in']); 
+        if($_SESSION[SESSION_NAME_PREFIX.'logged_in'])
+            {
+                echo '<li><a href="http://andrasdev.com/pophone/login/logout.php">Log Out</a></li>';
+            }
+            else
+            {
+            echo '<li><a href="http://andrasdev.com/pophone/login/login.php">Log In</a></li>';
+        }
+        
+        ?>
 	</ul>
 </nav>
  
