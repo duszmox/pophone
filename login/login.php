@@ -65,7 +65,7 @@ if(isset($_POST["step"])){
 					echo "<div style='color: red'>$error</div>";
 				}
 			?>
-			<a href="register.php" class="black-text block">Don't you have an account yet? Click here to register!</a>
+			<a href="register.php" class="black-text block">Dont have an account? Click here to register!</a>
 		</form>
 	</div>
 

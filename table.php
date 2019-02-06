@@ -32,22 +32,22 @@ if($_GET['table']){
 			$sql .= ", `Legutóbb updatelve` = '".date("Y/m/d h:i:sa")."' ";
 		}
 
-		if(isset($_GET['induló_ár']) && isset($_GET['végső_ár'])){
-			$middle = ( (int)$_GET['induló_ár'] + ((int)$_GET['végső_ár'] - (int)$_GET['induló_ár']) / 2);
+		if(isset($_GET['Induló_Ár']) && isset($_GET['Végső_Ár'])){
+			$middle = ( (int)$_GET['induló_ár'] + ((int)$_GET['Végső_Ár'] - (int)$_GET['Induló_Ár']) / 2);
 			$sql .= ", `középár`='".$middle."', `Célár` = '".($middle*0.8)."'";
 		}
 		if(isset($_GET['Beszerzési_ár']) && isset($_GET['Eladási_ár'])){
-			$sql .= ", `áfa`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])/1.27)."', `Netto profit`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])
+			$sql .= ", `áfa`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])/1.27)."', `Nettó profit`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])
 			-(((int)$_GET['Eladási_ár']
 				-(int)$_GET['Beszerzési_ár'])/1.27))."' ";
 		}
-		if(isset($_GET['Bek_Bruttó']) && isset($_GET['Kiker_Bruttó'])){
+		if(isset($_GET['Bekerülési_Bruttó']) && isset($_GET['Kikerülési_Bruttó'])){
 			$round = 0;
-			if((int)$_GET['Kiker_Bruttó'] !== 0)
+			if((int)$_GET['Kikerülési_Bruttó'] !== 0)
 				{
-					$round = round((((int)$_GET['Kiker_Bruttó']-(int)$_GET['Bek_Bruttó'])) / (int)$_GET['Kiker_Bruttó'], 3);
+					$round = round((((int)$_GET['Kikerülési_Bruttó']-(int)$_GET['Bekerülési_Bruttó'])) / (int)$_GET['Kikerülési_Bruttó'], 3);
 				}
-			$sql .= ", `nettó profit`='".round((int)$_GET['Kiker_Bruttó']-(int)$_GET['Bek_Bruttó'])."', `nettó %`='".$round."' ";
+			$sql .= ", `Nettó profit`='".round((int)$_GET['Kikerülési_Bruttó']-(int)$_GET['Bekerülési_Bruttó'])."', `nettó %`='".$round."' ";
 		}
 
 		$sql .= "WHERE `id`='".$_GET['id']."'";
@@ -60,19 +60,34 @@ if($_GET['table']){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BASIC</title>
+	<title>Ügyviteli rendszer </title>
+
+<link rel="apple-touch-icon" sizes="144x144" href="pophone/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="pophone/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="pophone/favicon/favicon-16x16.png">
+<link rel="manifest" href="pophone/favicon/site.webmanifest">
+<link rel="mask-icon" href="pophone/favicon/safari-pinned-tab.svg" color="#157996">
+<link rel="shortcut icon" href="pophone/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="pophone/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+			
+
 </head>
 <body>
 	<h2><center><p><?php echo $_GET['table'];?></p></center></h2>
 	<form action='table.php' method='get'>
 		<input type="text" name="newLine" value='true' class='invisible'>
 		<input type="text" name="table" value=<?php echo "'".$_GET['table']."'"?> class='invisible'>
-		<input type="submit" name="submit" value='NEW LINE'>
+		<input class="New-line" type="submit" name="submit" value='New Line'>
 	</form>
-	<form action='table.php' method='get'>
+	<form  action='table.php' method='get'>
 		<input type="text" name="table" value=<?php echo "'".$_GET['table']."'"?> class='invisible'>
-		<input type="submit" name="submit" value='DELETE LINE'>
-		<input type="text" name="deleteLine" value="Dont delete random lines">
+		<input class="line-deleter" type="text" name="deleteLine" placeholder="Don't delete random lines">
+		<input class="Delete-line" type="submit" name="submit" value='Delete Line'>
+		
 	</form>
 	<div>
 		<?php

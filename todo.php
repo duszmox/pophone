@@ -10,7 +10,12 @@ pophone_keszlet automata áfa stb... .
 pophone_forgalom automata áfa stb... .
 pophone_telefon nettó profit, %.
 pophone_socialmedia ott be kell álíltani a fiúkkal.
+HIDE GOMB CSINÁLÁSA. 											FOLYAMATBAN
 
+
+
+
+---------------------------------------------------------------------------------------
  Mi a legnagyobb félelmed?
  Mi a kedvenc könyved?
  Mi a legjobb dolog amit szeretsz magadban?
@@ -19,6 +24,7 @@ Mi a véleményed az édeshármasról?
 Ha elmennél egy étterembe randin, akkor ki fizetne?
  Ha a csávó hazakisér egy randi után a házig, akkor szerinted kinek kell kezdeményeznie?
 Izmos fenék, vagy izmos felső?
+!
 
 Igaz szerelem vagy sikeres elet?
 What is one thing you will never do again?
