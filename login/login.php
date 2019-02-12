@@ -16,7 +16,7 @@ if(isset($_POST["step"])){
 					$_SESSION[SESSION_NAME_PREFIX."username"] = $username;
 					$row = mysqli_fetch_assoc($result);
 					$_SESSION["rank"] = $row['rank'];
-					header("Location: ../table.php?table=tablet");
+					header("Location: ../table.php");
 					exit();
 				}
 				else{

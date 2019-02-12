@@ -125,3 +125,8 @@ What is one thing you will never do again?
 49. Giant house in a subdivision or tiny house somewhere with a view?
 
 50. What is the weirdest quirk your family has?
+
+<?php
+require_once("system.php");
+doesHaveAccess("username", "aktualisarak");
+?>

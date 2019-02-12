@@ -1,5 +1,6 @@
-<?php
+	<?php
 require_once("system.php");
+doesHaveAccessWebpage($_SESSION[SESSION_NAME_PREFIX.'username'], $_GET['table']);
 global $db_conn;
 //doesHaveRank(3);
 if($_GET['table']){
@@ -37,7 +38,7 @@ if($_GET['table']){
 			$sql .= ", `középár`='".$middle."', `Célár` = '".($middle*0.8)."'";
 		}
 		if(isset($_GET['Beszerzési_ár']) && isset($_GET['Eladási_ár'])){
-			$sql .= ", `áfa`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])/1.27)."', `Nettó profit`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])
+			$sql .= ", `Áfa`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])/1.27)."', `Nettó profit`='".round(((int)$_GET['Eladási_ár']-(int)$_GET['Beszerzési_ár'])
 			-(((int)$_GET['Eladási_ár']
 				-(int)$_GET['Beszerzési_ár'])/1.27))."' ";
 		}
@@ -51,7 +52,11 @@ if($_GET['table']){
 		}
 
 		$sql .= "WHERE `id`='".$_GET['id']."'";
+
+
 		//echo $sql;
+		
+
 		mysqli_query($db_conn, $sql);
 }
 }
